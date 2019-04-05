@@ -1,0 +1,14 @@
+// do animations in sequence
+Animated.sequence([
+  Animated.timing(scale, {
+      toValue: 120, // scale
+  }),
+  Animated.parallel([
+    Animated.spring(position, {
+      toValue: {x: 0, y: 0},
+    }),
+    Animated.timing(twirl, {
+      toValue: 360,
+    }),
+  ]),
+]).start(); // start the sequence group

@@ -1,0 +1,28 @@
+import { Animated } from 'react-native';
+  ...
+
+  state = {
+    position: new Animated.Value(0),
+  };
+
+  componentDidMount() {
+    Animated.timing(this.state.position, {
+      toValue: 500,
+      duration: 800,
+    }).start();
+  }
+
+  render() {
+    const { position } = this.state;
+    return (
+      <Animated.View
+        style={{
+          height: 100,
+          width: 100,
+          backgroundColor: 'red',
+          transform: [{ translateX: position }],
+        }}
+      />
+    );
+  }
+)

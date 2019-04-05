@@ -1,0 +1,23 @@
+const { scale, translateX, translateY, rotate } = this.state;
+
+// do animations in sequence
+Animated.sequence([
+  Animated.parallel([
+    Animated.timing(scale, {...}), // smaller
+    Animated.timing(translateX, {...}), // move left
+    Animated.timing(translateY, {...}), // move down
+  ]),
+  Animated.parallel([
+    Animated.timing(rotate, {...}), // lift thumb
+    Animated.timing(scale, {...}), // bigger
+    Animated.timing(translateX, {...}), // reset position
+    Animated.timing(translateY, {...}), // move up
+  ]),
+   Animated.parallel([
+    Animated.delay(300) // suspenseful delay before the thumb comes down
+    Animated.timing(rotate, {...}), // place thumb
+    Animated.timing(scale, {...}), //  normal scale
+    Animated.timing(translateX, {...}), // reset position
+    Animated.timing(translateY, {...}), // reset position
+  ]),
+]).start(); // start the sequence group

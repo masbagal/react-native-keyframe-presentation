@@ -1,0 +1,17 @@
+state = {
+  value: new Animated.Value(0),
+}
+
+// setup animation
+doAnimation() {
+  Animated.timing(this.state.animationFrame, {
+    toValue: 1,
+    duration: 800,
+  }).start();
+}
+
+// interpolate value
+value.interpolate({
+  inputRange: [0, 1],
+  outputRange: [0, 360],
+});
